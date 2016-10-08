@@ -3,7 +3,9 @@ var assert = require('chai').assert;
 var supertest = require('supertest');
 var serviceLib = require('../service'), service = serviceLib.service;
 
-var sut = new service();
+var serviceName = 'basic-service-test';
+
+var sut = new service(serviceName);
 
 describe('micro-service', function() {
 
@@ -18,15 +20,15 @@ describe('micro-service', function() {
     sut.stop();
   });
 
-  it('returns 200 on /status', function() {
-    request.get('/status').expect(200);
+  it('returns 200 on /status', function(done) {
+    request.get('/status').expect(200, done);
   });
 
-  it('returns json', function() {
-    request.get('/status').expect('Content-Type', /json/);
+  it('returns json', function(done) {
+    request.get('/status').expect('Content-Type', /application\/json/).end(done);
   });
 
-  it('returns name of the service', function() {
-    request.get('/status').expect('Content-Type', /json/);
+  it('returns name of the service', function(done) {
+    request.get('/status').expect({name: serviceName}).end(done);
   });
 });

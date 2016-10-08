@@ -1,13 +1,12 @@
 var express = require('express');
 
-var app = express();
 
-app.get('/status', function(req, res) {
-  res.status(200).json({ status: 'green' });
-});
+exports.service = function(serviceName) {
+	var app = express();
 
-exports.service = function() {
-  this.server;
+	app.get('/status', function(req, res) {
+	  res.status(200).json({ name: serviceName });
+	});
 
   this.start = function(port) {
     this.server = app.listen(port, function() {});
