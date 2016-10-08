@@ -21,4 +21,12 @@ describe('micro-service', function() {
   it('returns 200 on /status', function() {
     request.get('/status').expect(200);
   });
+
+  it('returns json', function() {
+    request.get('/status').expect('Content-Type', /json/);
+  });
+
+  it('returns name of the service', function() {
+    request.get('/status').expect('Content-Type', /json/);
+  });
 });
