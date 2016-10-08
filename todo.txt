@@ -15,3 +15,7 @@ LATER:
 - support for F#
 
 - app that gests github repo clones and builds docker services
+
+
+LATER LATER:
+- service proxy to catch messages and build a graph
