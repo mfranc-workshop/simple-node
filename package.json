@@ -4,6 +4,7 @@
   "description": "Simple service to create simple micro-service",
   "main": "app.js",
   "scripts": {
+	"start": "node app.js",
     "test": "mocha tests/*.js"
   },
   "dependencies": {
