@@ -5,7 +5,7 @@ var serviceName = 'basic-service-test';
 
 var now = (done) => (err, res) => err ? done.fail(err) : done();
 
-var sut = new service(serviceName);
+var sut = new service(serviceName, true);
 
 describe('micro-service', function() {
 
