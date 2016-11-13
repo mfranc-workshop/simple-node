@@ -1,12 +1,14 @@
 FROM ocelotuproar/alpine-node:5.7.1
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/app && \
+  curl -o- -L https://yarnpkg.com/install.sh | bash
+COPY package.json /usr/src/app/
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
-RUN npm install
+RUN $HOME/.yarn/bin/yarn install
 
 COPY . /usr/src/app
-EXPOSE 3000
+
+EXPOSE 8101
 
 CMD [ "npm", "start" ]
