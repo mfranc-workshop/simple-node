@@ -2,7 +2,7 @@ var express = require('express');
 var request = require('request');
 
 
-exports.service = function(serviceName, test = false) {
+exports.service = function(serviceName, port, test = false) {
 	var app = express();
 
 	app.get('/status', function(req, res) {
@@ -21,7 +21,7 @@ exports.service = function(serviceName, test = false) {
 
       var registerJson= {
         name: serviceName,
-        port: 8101
+        port: port
       };
 
       request({

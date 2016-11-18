@@ -1,4 +1,4 @@
-FROM ocelotuproar/alpine-node:5.7.1
+FROM node:6.6.0-wheezy
 
 RUN mkdir -p /usr/src/app && \
   curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -9,6 +9,4 @@ RUN $HOME/.yarn/bin/yarn install
 
 COPY . /usr/src/app
 
-EXPOSE 8101
-
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]

@@ -1,5 +1,10 @@
 var serviceLib = require('./service'), service = serviceLib.service;
 
-var app = new service('service-1-test');
+var name = process.env.NAME;
+var port = process.env.PORT;
 
-app.start(8101);
+console.log('starting app with name : ' + name + ' and port : ' + port );
+
+var app = new service(name, port);
+
+app.start(port);

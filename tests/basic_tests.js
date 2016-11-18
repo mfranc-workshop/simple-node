@@ -3,9 +3,11 @@ var serviceLib = require('../service'), service = serviceLib.service;
 
 var serviceName = 'basic-service-test';
 
+var port = 8000;
+
 var now = (done) => (err, res) => err ? done.fail(err) : done();
 
-var sut = new service(serviceName, true);
+var sut = new service(serviceName, port, true);
 
 describe('micro-service', function() {
 
@@ -13,7 +15,7 @@ describe('micro-service', function() {
   var request = supertest(host);
 
   beforeEach(function() {
-    sut.start(8000);
+    sut.start(port);
   });
   
   afterEach(function() {
