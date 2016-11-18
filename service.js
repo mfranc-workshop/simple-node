@@ -25,7 +25,7 @@ exports.service = function(serviceName, port, test = false) {
       };
 
       request({
-          url: "http://localhost:8100/register",
+          url: "http://traffic-proxy:8100/register",
           method: "POST",
           json: true,
           body: registerJson
